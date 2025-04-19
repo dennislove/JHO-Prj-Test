@@ -1,0 +1,8 @@
+.contact-page {
+  position: relative;
+  transition: filter 0.3s ease;
+
+  &.blur {
+    filter: blur(2px);
+  }
+}

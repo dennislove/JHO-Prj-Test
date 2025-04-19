@@ -1,0 +1,172 @@
+.loginWrapper {
+  background-image: url("/images/Background.png");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 0;
+}
+
+.loginBox {
+  background: #ffffff07;
+  border-radius: 20px;
+  padding: 20px 52px;
+  max-width: 400px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid #ffffff20;
+}
+.logoImage {
+  margin-top: 18px;
+}
+.wrapTitle {
+  margin: 50px 0px;
+}
+.wrapInput {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  input {
+    width: 100%;
+    padding-right: 40px; // space for eye icon
+  }
+
+  .eyeIcon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #888;
+    font-size: 1.1rem;
+  }
+}
+.input {
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  &:focus {
+    outline: none;
+    transform: scale(1.1);
+    transition-duration: 500ms;
+  }
+}
+.confirmPassword {
+  margin-bottom: 10px;
+}
+.warrningText {
+  color: red;
+  text-align: left;
+  font-style: italic;
+}
+.forgot {
+  text-align: right;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+  margin-bottom: 28px;
+  margin-top: 8px;
+
+  a {
+    color: #16fcd2;
+    text-decoration: underline;
+  }
+}
+
+.lineInOr {
+  height: 1px;
+  width: 100%;
+  background-color: #fff;
+}
+.orLine {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 28px 0px;
+  gap: 10px;
+}
+.wrapBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.googleBtn,
+.facebookBtn {
+  width: 100%;
+  padding: 15px 55px;
+  gap: 10px;
+  border-radius: 3px;
+  gap: 10px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.googleBtn {
+  background: white;
+  color: #dd4b39;
+}
+
+.facebookBtn {
+  background: #3b5998;
+  color: white;
+}
+
+.signup {
+  margin-top: 20px;
+  cursor: pointer;
+
+  a {
+    color: #dd5313;
+  }
+}
+
+.signupBox {
+  transform: scaleX(-1);
+}
+
+.authContainer {
+  perspective: 1000px;
+  width: 500px;
+  height: 98vh;
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 0;
+  margin: auto;
+  position: relative;
+}
+
+.card {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+}
+
+.back {
+  transform: rotateY(180deg);
+}

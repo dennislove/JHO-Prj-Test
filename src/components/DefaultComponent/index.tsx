@@ -1,0 +1,70 @@
+import React, { useState } from "react";
+import Header from "../Header";
+
+import "./index.scss";
+
+import HeaderView from "./HeaderView";
+import SidebarView from "./SidebarView";
+import ListContact from "../Contact/ListContact";
+import ListEtiquettes from "../Contact/ListEtiquettes";
+import Exporter from "../Contact/Exporter";
+
+const DefaultComponent: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const [isListContactOpen, setIsListContactOpen] = useState(false);
+  const [isListEtiquettesOpen, setIsListEtiquettesOpen] = useState(false);
+  const [isExporterOpen, setIsExporterOpen] = useState(false);
+
+  return (
+    <div className={`layout ${isListContactOpen ? "blur" : ""}`}>
+      <div className="main-content">
+        <Header />
+
+        {/* Main content */}
+        <main className="content">
+          <SidebarView />
+          <div className="content-children">
+            <HeaderView />
+            <div className="body-content-children">
+              {React.Children.map(children, (child) =>
+                React.isValidElement(child)
+                  ? React.cloneElement(child, {
+                      isListContactOpen,
+                      isListEtiquettesOpen,
+                      isExporterOpen,
+                      setIsListContactOpen,
+                      setIsListEtiquettesOpen,
+                      setIsExporterOpen,
+                    })
+                  : child
+              )}
+            </div>
+          </div>
+        </main>
+      </div>
+      {isListContactOpen && (
+        <ListContact
+          isListContactOpen={isListContactOpen}
+          setIsListContactOpen={setIsListContactOpen}
+        />
+      )}
+      {isListEtiquettesOpen && (
+        <ListEtiquettes
+          isListEtiquettesOpen={isListEtiquettesOpen}
+          setIsListEtiquettesOpen={setIsListEtiquettesOpen}
+        />
+      )}
+      {isExporterOpen && (
+        <Exporter
+          isExporterOpen={isExporterOpen}
+          setIsExporterOpen={setIsExporterOpen}
+        />
+      )}
+
+      {/* Footer */}
+    </div>
+  );
+};
+
+export default DefaultComponent;

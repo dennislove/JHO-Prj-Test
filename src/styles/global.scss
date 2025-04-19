@@ -1,3 +1,42 @@
-body{
-    background-color: #09091A;
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400..700;1,400..700&display=swap");
+@import "var";
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Noto Sans", sans-serif;
+}
+body {
+  background-color: $background-color;
+}
+h1 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 54px;
+}
+h2 {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 48px;
+}
+
+.button_solid {
+  background-color: $primary-color;
+  color: $light_color;
+  padding: 15px 55px;
+  border-radius: 3px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.button_outline {
+  color: $primary-color;
+  padding: 15px 55px;
+  gap: 10px;
+  border-radius: 3px;
+  gap: 10px;
+  outline-color: $primary-color;
+  border: none;
+  width: 100%;
+  cursor: pointer;
 }

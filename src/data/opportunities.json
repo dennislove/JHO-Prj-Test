@@ -1,0 +1,100 @@
+{
+  "columns": [
+    {
+      "title": "Non traité",
+      "color": "#1e90ff",
+      "opportunities": [
+        {
+          "title": "AFFAIRE ROMAIN",
+          "subtitle": "STUDIO GILLY, ROMAIN",
+          "value": "1500€",
+          "warning": true
+        },
+        {
+          "title": "AFFAIRE ROMAIN",
+          "subtitle": "STUDIO GILLY, ROMAIN",
+          "value": "1500€",
+          "warning": false
+        }
+      ]
+    },
+    {
+      "title": "Injoignable",
+      "color": "#ff8c00",
+      "opportunities": [
+        {
+          "title": "AFFAIRE ROMAIN",
+          "subtitle": "STUDIO GILLY, ROMAIN",
+          "value": "1500€",
+          "warning": true
+        },
+        {
+          "title": "AFFAIRE ROMAIN",
+          "subtitle": "STUDIO GILLY, ROMAIN",
+          "value": "1500€",
+          "warning": false
+        }
+      ]
+    },
+    {
+      "title": "En cours",
+      "color": "#0038FF",
+      "opportunities": [
+        {
+          "title": "AFFAIRE ROMAIN",
+          "subtitle": "STUDIO GILLY, ROMAIN",
+          "value": "1500€",
+          "warning": false
+        },
+        {
+          "title": "AFFAIRE ROMAIN",
+          "subtitle": "STUDIO GILLY, ROMAIN",
+          "value": "1500€",
+          "warning": false
+        }
+      ]
+    },
+    {
+      "title": "En négociation",
+      "color": "#00b7eb",
+      "opportunities": [
+        {
+          "title": "AFFAIRE ROMAIN",
+          "subtitle": "STUDIO GILLY, ROMAIN",
+          "value": "1500€",
+          "warning": false
+        },
+        {
+          "title": "AFFAIRE ROMAIN",
+          "subtitle": "STUDIO GILLY, ROMAIN",
+          "value": "1500€",
+          "warning": true
+        }
+      ]
+    },
+    {
+      "title": "Gagné",
+      "color": "#32cd32",
+      "opportunities": [
+        {
+          "title": "AFFAIRE ROMAIN",
+          "subtitle": "STUDIO GILLY, ROMAIN",
+          "value": "1500€",
+          "warning": false
+        }
+      ]
+    },
+    {
+      "title": "Perdu",
+      "color": "#ff4040",
+      "opportunities": [
+        {
+          "title": "AFFAIRE ROMAIN",
+          "subtitle": "STUDIO GILLY, ROMAIN",
+          "value": "1500€",
+          "warning": false
+        }
+      ]
+    }
+  ]
+}

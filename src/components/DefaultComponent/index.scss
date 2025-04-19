@@ -1,0 +1,102 @@
+@import "../../styles/var.scss";
+.layout {
+  position: relative;
+  transition: filter 0.3s ease;
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .content {
+      display: flex;
+      flex: 1;
+
+      .content-children {
+        flex: 1;
+
+        .body-content-children {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+.sidebar {
+  width: 48px;
+  height: 100vh;
+  background-color: $theme-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .icon {
+    padding: 13px 15px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.content {
+  display: flex;
+  padding-top: 0;
+  padding-left: 0;
+  background-color: $background-color;
+  color: white;
+  gap: 2px;
+}
+.content-children {
+  flex-shrink: 1;
+  width: 100%;
+}
+.body-content-children {
+  padding: 0 24px;
+}
+
+//tag path
+.topView {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #273140;
+}
+.headerView {
+  display: flex;
+  padding: 0px 13px;
+}
+.tag-path {
+  display: flex;
+  gap: 4px;
+  color: $gray-color;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 22px;
+  text-decoration: none;
+}
+
+.active {
+  background-color: rgba($primary-color, 0.2);
+  color: $light-color;
+  border-bottom: 4px solid $primary-color;
+
+  .icon {
+    color: $primary-color;
+  }
+}
+.activeIcon {
+  background-color: rgba($primary-color, 0.2);
+  color: $primary-color;
+  border-right: 4px solid $primary-color;
+}
+
+.header-setting {
+  float: inline-end;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  padding: 7px 9px;
+  margin-right: 23px;
+  border-radius: 10px;
+  background-color: rgba($light-color, 0.1);
+}

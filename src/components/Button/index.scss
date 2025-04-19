@@ -1,0 +1,22 @@
+@import "../../styles/var.scss";
+.add-contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: $primary-color;
+  border: none;
+  padding: 11px 45px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #e07b30;
+  }
+
+  .icon {
+    font-size: 16px;
+  }
+}

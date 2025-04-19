@@ -1,0 +1,224 @@
+@import "../../styles/var.scss";
+.list-contact-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); // Overlay mờ
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list-box-container {
+  background: $background-color;
+  max-width: 600px;
+  width: 100%;
+  color: #fff;
+  padding: 46px 138px;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1001;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  .closeBox {
+    position: absolute;
+    top: -10%;
+    right: -17%;
+    cursor: pointer;
+    &:hover {
+      background-color: $light-color;
+
+      border-radius: 100%;
+      color: $background-color;
+    }
+  }
+  .list-box-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 18px;
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+
+      .menu-icon {
+        color: $primary-color;
+        font-size: 18px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 20px;
+        color: #fff;
+      }
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .search-bar {
+        display: flex;
+        align-items: center;
+        background-color: #232b39;
+        border-radius: 10px;
+        padding: 12px;
+        padding-right: 0;
+
+        .search-icon {
+          color: $light-color;
+          font-size: 14px;
+          margin-right: 5px;
+        }
+
+        input {
+          background: transparent;
+          border: none;
+          color: $light-color;
+          font-size: 14px;
+
+          &::placeholder {
+            color: $light-color;
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+
+  .list-box-table {
+    .table-header {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      padding: 10px;
+      border-bottom: 1px solid rgba($light-color, 0.2);
+      color: #8b8b8b;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .table-body {
+      .table-row {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        padding: 10px;
+        border-bottom: 1px solid rgba($light-color, 0.2);
+        font-size: 12px;
+        font-weight: 700;
+        color: #fff;
+        span {
+          margin-top: auto;
+          margin-bottom: auto;
+        }
+        .action-cell {
+          display: flex;
+          align-items: center;
+          justify-self: end;
+
+          .animation {
+            transform: translateX(10px);
+            transform: rotate(90deg);
+            transition-duration: 300ms;
+          }
+          .edit-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: transparent;
+            color: $light-color;
+            border: 1px solid $second-color;
+            border-bottom-left-radius: 10px;
+            border-top-left-radius: 10px;
+            padding: 12px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            .edit-icon,
+            .delete-icon {
+              font-size: 12px;
+            }
+
+            &:hover {
+              background: rgba($second-color, 0.1);
+            }
+          }
+
+          .dropdown {
+            padding: 12px;
+            border: 1px solid $second-color;
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px;
+            .dropdown-icon {
+              color: $light-color;
+              font-size: 14px;
+              cursor: pointer;
+              border: $second-color;
+              &:hover {
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//etiquettes
+.tag-etiquettes {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+// Define color classes
+.tag-etiquettes--blue {
+  width: 200px;
+  padding: 4px auto;
+  background-color: #1e90ff;
+}
+
+.tag-etiquettes--green {
+  width: 200px;
+  padding: 4px auto;
+  background-color: #32cd32;
+}
+
+.tag-etiquettes--dark-green {
+  width: 200px;
+  padding: 4px auto;
+  background-color: #228b22;
+}
+
+.tag-etiquettes--cyan {
+  width: 200px;
+  padding: 4px auto;
+  background-color: #00ced1;
+}
+
+.tag-etiquettes--yellow {
+  width: 200px;
+  padding: 4px auto;
+  background-color: #ffd700;
+}
+
+.tag-etiquettes--red {
+  width: 200px;
+  padding: 4px auto;
+  background-color: #ff4500;
+}
