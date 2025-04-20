@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import "./LoginForm.scss";
 import { FaEye, FaEyeSlash, FaFacebook, FaGoogle } from "react-icons/fa";
-
+import { Auth, AuthProvider, User } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { auth, provider, signInWithPopup } from "../../../App";
 interface LoginFormProps {
   onFlip: () => void;
+  auth: Auth;
+  provider: AuthProvider;
 }
+
 const LoginForm: React.FC<LoginFormProps> = ({ onFlip }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,6 +21,34 @@ const LoginForm: React.FC<LoginFormProps> = ({ onFlip }) => {
     email: "dennistran@gmail.com",
     password: "Abc@777999",
   };
+  const [, setUser] = useState<User | null>(null);
+  const [, setIsAdmin] = useState<boolean>(false);
+
+  const handleLoginGoogle = async (): Promise<void> => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user: User = result.user;
+
+      setUser(user);
+
+      // List of admin emails
+      const adminEmails: string[] = [
+        "tranvantinh0923coze@gmail.com",
+        "recruitment@jhotech.co",
+      ];
+
+      if (user.email && adminEmails.includes(user.email)) {
+        setIsAdmin(true);
+        navigate("/contacts");
+      } else {
+        setIsAdmin(false);
+        navigate("/");
+      }
+    } catch (error: unknown) {
+      console.error("Login failed:", error);
+    }
+  };
+
   const handleLogin = () => {
     if (!email || !password) {
       setError("Email and pasword cannot be left blank");
@@ -84,10 +116,10 @@ const LoginForm: React.FC<LoginFormProps> = ({ onFlip }) => {
       </div>
 
       <div className="wrapBtn">
-        <button className="googleBtn">
+        <button className="googleBtn" onClick={handleLoginGoogle}>
           <span>
             <FaGoogle />
-          </span>{" "}
+          </span>
           Continue with Google
         </button>
         <button className="facebookBtn">

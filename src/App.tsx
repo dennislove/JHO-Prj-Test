@@ -1,11 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import routes from "./routes/indexRoutes";
 import DefaultComponent from "./components/DefaultComponent";
-
+import firebaseConfig from "./firebaseConfig";
+import PrivateRoute from "./routes/PrivateRoute";
+import { initializeApp } from "firebase/app";
 import "./styles/global.scss";
 import "./styles/var.scss";
-import PrivateRoute from "./routes/PrivateRoute";
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
 interface AppRoute {
   path: string;
@@ -46,5 +53,7 @@ function App() {
     </Router>
   );
 }
+// eslint-disable-next-line react-refresh/only-export-components
+export { auth, provider, signInWithPopup };
 
 export default App;
