@@ -6,6 +6,10 @@ Currently, two official plugins are available:
 
 #set up and run project
 
+git clone https://github.com/dennislove/JHO-Prj-Test.git
+
+cd JHO-Prj-Test
+
 npm i
 
 npm run dev
