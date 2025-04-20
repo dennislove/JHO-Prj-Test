@@ -15,19 +15,22 @@
   background: $background-color;
   max-width: 600px;
   width: 100%;
-  height: 100%;
   color: #fff;
   display: flex;
   justify-content: center;
   border-radius: 10px;
   position: absolute;
   z-index: 1001;
-  top: 0;
+  top: 20%;
   transition: transform 5s ease-in-out;
 
   &.open {
     animation: slideInWithFade 0.5s ease-in-out forwards;
   }
+}
+.container-special {
+  height: 100%;
+  top: 0;
 }
 .modal-header {
   display: flex;

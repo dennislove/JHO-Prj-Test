@@ -10,7 +10,7 @@ interface ExporterProps {
 
 const Exporter: React.FC<ExporterProps> = ({ setIsExporterOpen }) => {
   const [exportFormat, setExportFormat] = useState<"xlsx" | "csv">("xlsx");
-  const [exportName, setExportName] = useState("");
+  const [exportName, setExportName] = useState<string>("");
   const [selectedFields, setSelectedFields] = useState({
     defaultFields: false,
     otherFields: false,
@@ -84,6 +84,7 @@ const Exporter: React.FC<ExporterProps> = ({ setIsExporterOpen }) => {
           </div>
 
           {/* Export Name Section */}
+
           <div className="section">
             <h3>Nom de l'exportation (facultatif)</h3>
             <input

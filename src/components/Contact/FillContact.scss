@@ -11,12 +11,25 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    h3 {
+      font-size: 12px;
+      font-weight: 400;
+    }
   }
 
   .contact-count {
     font-size: 14px;
     font-weight: 700;
     color: $light-color;
+  }
+}
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  h3 {
+    font-size: 12px;
+    font-weight: 400;
   }
 }
 
@@ -65,7 +78,7 @@
     gap: 5px;
     background-color: transparent;
     border: 1px solid #273140;
-    padding: 11px;
+    padding: 17px 12px;
     border-radius: 10px;
 
     .search-icon {
@@ -230,10 +243,42 @@
 
 //Pipeline
 .dropdown-wrapper {
-  border: 1px solid $second-color;
-  padding: 13px 18px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
   background-color: none;
-  border-radius: 10px;
+
+  position: relative;
+  select {
+    border: 1px solid $second-color;
+    border-radius: 10px;
+    padding: 13px 16px;
+    padding-right: 24px;
+    appearance: none;
+    background: $theme-color;
+    color: #fff;
+    border: 1px solid $second-color;
+  }
+  .pipeline-angle {
+    position: absolute;
+    right: 10px;
+    color: #b0c4de;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+  }
+  .pipline-btn {
+    padding: 13px 38px;
+    font-size: 10px;
+    font-weight: 400;
+    border-radius: 10px;
+    border: 1px solid $second-color;
+    cursor: pointer;
+  }
+  h3 {
+    font-size: 10px;
+    font-weight: 400;
+    margin-right: 8px;
+  }
 }
 .dropdown-pipeline {
   border: none;

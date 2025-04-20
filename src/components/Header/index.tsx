@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.scss";
 import {
   FiSearch,
@@ -7,17 +7,34 @@ import {
   FiSettings,
   FiPlus,
 } from "react-icons/fi";
+import clsx from "clsx";
 
 const Header: React.FC = () => {
+  const [isFixed, setIsFixed] = useState(false);
+
+  const handleScroll = () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    setIsFixed(scrollTop > 200);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="app-header">
-      <div className="left-section">
+    <header
+      className={clsx("app-header", {
+        ["fixed"]: isFixed,
+      })}
+    >
+      {/* <div className="left-section">
         <img
           srcSet="/images/logo.png 2x"
           alt="Metafora Logo"
           className="logo"
         />
-      </div>
+      </div> */}
 
       <div className="center-section">
         <div className="search-bar">

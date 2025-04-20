@@ -10,6 +10,8 @@ import { VscChromeClose } from "react-icons/vsc";
 import listsData from "../../data/listContacts.json";
 import "./ListContact.scss";
 import ButtonSolid from "../Button/ButtonSolid";
+import AddList from "./AddList";
+import EditList from "./EditList";
 
 interface List {
   id: number;
@@ -28,7 +30,8 @@ const ListContact: React.FC<ListContactProps> = ({
 }) => {
   const [lists] = useState<List[]>(listsData);
   const [openTrashId, setOpenTrashId] = useState<number | null>(null);
-
+  const [isAddListOpen, setIsAddListOpen] = useState<boolean>(false);
+  const [isEditListOpen, setIsEditListOpen] = useState<boolean>(false);
   const toggleTrash = (id: number) => {
     setOpenTrashId((prev) => (prev === id ? null : id));
   };
@@ -36,10 +39,21 @@ const ListContact: React.FC<ListContactProps> = ({
   const handleClose = () => {
     setIsListContactOpen(false);
   };
-
+  const handeOpenAddList = () => {
+    setIsAddListOpen(true);
+  };
+  const handeOpenEditList = () => {
+    setIsEditListOpen(true);
+  };
+  const handleCloseAddList = () => {
+    setIsAddListOpen(false);
+  };
+  const handleCloseEditList = () => {
+    setIsEditListOpen(false);
+  };
   return (
     <div className="list-contact-overlay">
-      <div className="list-box-container">
+      <div className={`${isAddListOpen ? "blur" : ""} list-box-container`}>
         <div className="list-box-header">
           <VscChromeClose
             size={24}
@@ -55,7 +69,7 @@ const ListContact: React.FC<ListContactProps> = ({
               <FaSearch className="search-icon" size={18} />
               <input type="text" placeholder="Recherche" />
             </div>
-            <ButtonSolid name="Ajouter une liste" />
+            <ButtonSolid name="Ajouter une liste" onClick={handeOpenAddList} />
           </div>
         </div>
 
@@ -71,7 +85,7 @@ const ListContact: React.FC<ListContactProps> = ({
                 <span>{list.name}</span>
                 <span>{list.contactCount}</span>
                 <div className="action-cell">
-                  <button className="edit-btn">
+                  <button className="edit-btn" onClick={handeOpenEditList}>
                     <FaPen className="edit-icon" />
                     Modifier
                   </button>
@@ -97,6 +111,8 @@ const ListContact: React.FC<ListContactProps> = ({
           </div>
         </div>
       </div>
+      {isAddListOpen && <AddList onClose={handleCloseAddList} />}
+      {isEditListOpen && <EditList onClose={handleCloseEditList} />}
     </div>
   );
 };

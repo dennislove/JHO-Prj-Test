@@ -18,7 +18,11 @@ h2 {
   font-size: 30px;
   line-height: 48px;
 }
-
+button {
+  background: none;
+  outline: none;
+  border: none;
+}
 .button_solid {
   background-color: $primary-color;
   color: $light_color;

@@ -6,14 +6,16 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5); // Overlay mờ
-  z-index: 100;
+  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .list-box-container {
   background: $background-color;
   max-width: 600px;
+
   width: 100%;
   color: #fff;
   padding: 46px 138px;
@@ -34,6 +36,9 @@
       border-radius: 100%;
       color: $background-color;
     }
+  }
+  .blur {
+    filter: blur(2px);
   }
   .list-box-header {
     position: relative;

@@ -1,16 +1,16 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
-import "./CreateOppor.scss";
+import "../Opportunity/CreateOppor.scss";
 import { VscChromeClose } from "react-icons/vsc";
 import { FaAngleDown } from "react-icons/fa";
 
-interface CreateOpporProps {
-  isCreateOpporOpen: boolean;
-  setIsCreateOpporOpen: Dispatch<SetStateAction<boolean>>;
+interface EditTaskProps {
+  isEditTaskOpen: boolean;
+  setIsEditTaskOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const CreateOppor: React.FC<CreateOpporProps> = ({
-  isCreateOpporOpen,
-  setIsCreateOpporOpen,
+const EditTask: React.FC<EditTaskProps> = ({
+  isEditTaskOpen,
+  setIsEditTaskOpen,
 }) => {
   const [formData, setFormData] = useState({
     transactionName: "",
@@ -37,7 +37,7 @@ const CreateOppor: React.FC<CreateOpporProps> = ({
   };
 
   const handleClose = () => {
-    setIsCreateOpporOpen(false);
+    setIsEditTaskOpen(false);
   };
 
   const colorMap: { [key: string]: string } = {
@@ -49,7 +49,7 @@ const CreateOppor: React.FC<CreateOpporProps> = ({
     <div className="list-contact-overlay">
       <div
         className={`list-box-container container-special ${
-          isCreateOpporOpen ? "open" : ""
+          isEditTaskOpen ? "open" : ""
         }`}
       >
         <div className="modal-header">
@@ -196,4 +196,4 @@ const CreateOppor: React.FC<CreateOpporProps> = ({
   );
 };
 
-export default CreateOppor;
+export default EditTask;

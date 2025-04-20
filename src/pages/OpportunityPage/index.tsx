@@ -4,6 +4,7 @@ import "../ContactPage/Contact.scss";
 import FillOpportunity from "../../components/Opportunity/FillOpportunity";
 import OpportunityTable from "../../components/Opportunity/OpportunityTable";
 import OpportunityDash from "../../components/Opportunity/OpportunityDash";
+import NonTraiteTable from "../../components/Opportunity/NonTraiteTable";
 
 interface OpporPageProps {
   isCreateOpporOpen: boolean;
@@ -25,7 +26,13 @@ const OpportunityPage: React.FC<OpporPageProps> = ({
         setIsCreateOpporOpen={setIsCreateOpporOpen}
       />
       <div className="content">
-        {activeIndex === 0 ? <OpportunityTable /> : <OpportunityDash />}
+        {activeIndex === 0 ? (
+          <OpportunityTable />
+        ) : activeIndex === 1 ? (
+          <OpportunityDash />
+        ) : (
+          <NonTraiteTable />
+        )}
       </div>
     </div>
   );

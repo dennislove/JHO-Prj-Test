@@ -1,5 +1,29 @@
 @import "../../styles/var.scss";
 
+//non-traite
+.wrap-item {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h4 {
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+}
+.text-input-item {
+  padding: 12px;
+  border-radius: 5px;
+  background: #2e3745;
+  font-size: 12px;
+  font-weight: 400;
+}
 .opportunity-dash {
   width: 100%;
 }
@@ -40,7 +64,14 @@
         font-size: 12px;
       }
     }
-
+    .toggle-text {
+      font-size: 12px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
     .card {
       height: auto;
       background: #243145;

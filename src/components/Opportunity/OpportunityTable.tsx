@@ -7,7 +7,7 @@ import {
   useReactTable,
   Row,
 } from "@tanstack/react-table";
-import opportunitesData from "../../data/lisstOpportunites.json";
+import opportunitesData from "../../data/listOpportunites.json";
 import "../Contact/ContactTable.scss";
 import {
   FaChevronLeft,
@@ -44,7 +44,6 @@ const OpportuniteRow: React.FC<{
 
   return (
     <tr>
-      {/* 1: Checkbox */}
       <td className="td">
         <input
           type="checkbox"
@@ -52,20 +51,20 @@ const OpportuniteRow: React.FC<{
           onChange={() => onToggle(opportunite.id)}
         />
       </td>
-      {/* 2: Nom du contact */}
+
       <td className="td">
         <div className="contentName">
           <h3>{opportunite.name}</h3>
         </div>
       </td>
-      {/* 3: status  */}
+
       <td className="td">
         <div className="email-cell">
           {/* <FaEnvelope className="email-icon" /> */}
           {opportunite.status}
         </div>
       </td>
-      {/* 7: Étiquettes */}
+
       <td className="td">
         <div className="label-cell">
           {visibleTags.map((tag: string, index: number) => (
@@ -78,16 +77,16 @@ const OpportuniteRow: React.FC<{
           )}
         </div>
       </td>
-      {/* 4: organisation  */}
+
       <td className="td">
         <div className="phone-cell">
           {/* <FaPhone className="phone-icon" /> */}
           {opportunite.organisation}
         </div>
       </td>
-      {/* 5: Opportunity */}
+
       <td className="td">{opportunite.contact}</td>
-      {/* 6: Responsable */}
+
       <td className="td">
         <div className="respon-cell">
           <img
@@ -99,11 +98,10 @@ const OpportuniteRow: React.FC<{
         </div>
       </td>
 
-      {/* 5: Opportunity */}
       <td className="td">{opportunite.valeur}</td>
-      {/* 5: Opportunity */}
+
       <td className="td">{opportunite.dateClosing}</td>
-      {/* 8: Setting*/}
+
       <td className="td ">
         <div className="setting-cell">
           <button className="action-btn" onClick={() => onEdit?.(opportunite)}>
@@ -120,11 +118,11 @@ const OpportuniteRow: React.FC<{
     </tr>
   );
 };
+
 const OpportunityTable: React.FC = () => {
   const [opportunites, setOpportunites] =
     useState<Opportunite[]>(opportunitesData);
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
-  // checkbox
 
   // craw data
   const data: Opportunite[] = useMemo(() => opportunites, [opportunites]);
@@ -255,27 +253,30 @@ const OpportunityTable: React.FC = () => {
               </option>
             ))}
           </select>
-        </div>
-        <span>
-          {startRow}-{endRow} sur {data.length}
-        </span>
-        <div className="page-controls">
-          <button
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
-          >
-            <FaChevronLeft />
-          </button>
           <span>
-            {pageIndex + 1} de {table.getPageCount()}
+            {startRow}-{endRow} sur {data.length}
           </span>
-          <button
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
-          >
-            <FaChevronRight />
-          </button>
         </div>
+        <div className="paginati-center">
+          <div className="page-controls">
+            <button
+              onClick={() => table.previousPage()}
+              disabled={!table.getCanPreviousPage()}
+            >
+              <FaChevronLeft size={18} />
+            </button>
+            <span>0{pageIndex + 1}</span>
+            <span>de</span>
+            <span>0{table.getPageCount()}</span>
+            <button
+              onClick={() => table.nextPage()}
+              disabled={!table.getCanNextPage()}
+            >
+              <FaChevronRight size={18} />
+            </button>
+          </div>
+        </div>
+        <div></div>
       </div>
     </div>
   );

@@ -11,7 +11,6 @@
   align-items: center;
   z-index: 1000;
 }
-
 .list-box-container {
   background: $background-color;
   border-radius: 8px;
@@ -32,7 +31,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-  border-bottom: 1px solid #3a4b4c;
+  // border-bottom: 1px solid #3a4b4c;
 
   h2 {
     margin: 0;
@@ -114,8 +113,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 16px;
-  border-top: 1px solid #3a4b4c;
+  padding: 24px 0px;
+  // border-top: 1px solid #3a4b4c;
   gap: 26px;
 
   .cancel-btn,

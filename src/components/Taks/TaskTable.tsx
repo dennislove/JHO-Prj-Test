@@ -7,11 +7,13 @@ import {
   useReactTable,
   Row,
 } from "@tanstack/react-table";
-import contactsData from "../../data/contacts.json";
-import "./ContactTable.scss";
+import taskListsData from "../../data/listTasks.json";
+import "../Contact/ContactTable.scss";
 import {
+  FaCheckCircle,
   FaChevronLeft,
   FaChevronRight,
+  FaCircle,
   FaCog,
   FaEnvelope,
   FaPen,
@@ -19,29 +21,28 @@ import {
   FaTrash,
 } from "react-icons/fa";
 
-type Contact = {
+type TaskList = {
   id: number;
-  name: string;
+  realise: boolean;
+  title: string;
+  dateEnd: string;
   email: string;
-  particulier: string;
-  phone: string;
+  opportunite: string;
+  status: string;
+  contact: string;
+  responsable: string;
+  dateStart: string;
   avatar: string;
-  opportunity: string;
-  responsible: string;
-  tags: string[];
 };
 
-const ContactRow: React.FC<{
-  row: Row<Contact>;
+const TaskListRow: React.FC<{
+  row: Row<TaskList>;
   onToggle: (id: number) => void;
   selectedIds: number[];
   onDelete: (id: number) => void;
-  onEdit?: (contact: Contact) => void;
+  onEdit?: (taskList: TaskList) => void;
 }> = ({ row, onToggle, selectedIds, onDelete, onEdit }) => {
-  const contact = row.original as Contact;
-
-  const visibleTags = contact.tags.slice(0, 2);
-  const hasMoreTags = contact.tags.length > 2;
+  const taskList = row.original as TaskList;
 
   return (
     <tr>
@@ -49,67 +50,70 @@ const ContactRow: React.FC<{
       <td className="td">
         <input
           type="checkbox"
-          checked={selectedIds.includes(contact.id)}
-          onChange={() => onToggle(contact.id)}
+          checked={selectedIds.includes(taskList.id)}
+          onChange={() => onToggle(taskList.id)}
         />
       </td>
-
-      {/* 2: Nom du contact */}
-      <td className="td">
-        <div className="contentName">
-          <h3>{contact.name}</h3>
-          <p>{contact.particulier}</p>
-        </div>
-      </td>
-
-      {/* 3: Email  */}
       <td className="td">
         <div className="email-cell">
-          <FaEnvelope className="email-icon" />
-          {contact.email}
-        </div>
-      </td>
-
-      {/* 4: Téléphone  */}
-      <td className="td">
-        <div className="phone-cell">
-          <FaPhone className="phone-icon" />
-          {contact.phone}
-        </div>
-      </td>
-
-      {/* 5: Opportunity */}
-      <td className="td">{contact.opportunity}</td>
-
-      {/* 6: Responsable */}
-      <td className="td">
-        <div className="respon-cell">
-          <img src={contact.avatar} alt="user avatar" className="user-avatar" />
-          {contact.responsible}
-        </div>
-      </td>
-
-      {/* 7: Étiquettes */}
-      <td className="td">
-        <div className="label-cell">
-          {visibleTags.map((tag: string, index: number) => (
-            <span key={index} className={`label label-${tag.toLowerCase()}`}>
-              {tag}
-            </span>
-          ))}
-          {hasMoreTags && (
-            <div className="hiddenItem">+{contact.tags.length - 2}</div>
+          {taskList.realise === true ? (
+            <FaCheckCircle size={24} />
+          ) : (
+            <FaCircle size={24} />
           )}
         </div>
       </td>
+      {/* 2: Nom du contact */}
+      <td className="td">
+        <div className="contentName">
+          <h3>{taskList.title}</h3>
+        </div>
+      </td>
+      {/* 3: status  */}
+      <td className="td">
+        <div className="email-cell">{taskList.dateEnd}</div>
+      </td>
+      {/* 7: Étiquettes */}
 
+      <td className="td">
+        <div className="email-cell">
+          <FaEnvelope className="email-icon" />
+          {taskList.email}
+        </div>
+      </td>
+      {/* 5: Opportunity */}
+      <td className="td">
+        <div className="email-cell">
+          <FaPhone className="email-icon" />
+          {taskList.opportunite}
+        </div>
+      </td>
+      <td className="td">
+        <div className="email-cell">{taskList.status}</div>
+      </td>
+      <td className="td">
+        <div className="email-cell">{taskList.contact}</div>
+      </td>
+      {/* 6: Responsable */}
+      <td className="td">
+        <div className="respon-cell">
+          <img
+            src={taskList.avatar}
+            alt="user avatar"
+            className="user-avatar"
+          />
+          {taskList.responsable}
+        </div>
+      </td>
+
+      <td className="td">{taskList.dateStart}</td>
       {/* 8: Setting*/}
       <td className="td ">
         <div className="setting-cell">
-          <button className="action-btn" onClick={() => onEdit?.(contact)}>
+          <button className="action-btn" onClick={() => onEdit?.(taskList)}>
             <FaPen className="pen-icon" />
           </button>
-          <button className="action-btn" onClick={() => onDelete(contact.id)}>
+          <button className="action-btn" onClick={() => onDelete(taskList.id)}>
             <FaTrash className="trash-icon" />
           </button>
         </div>
@@ -117,15 +121,15 @@ const ContactRow: React.FC<{
     </tr>
   );
 };
-const ContactTable: React.FC = () => {
-  const [contacts, setContacts] = useState<Contact[]>(contactsData);
+const TaskTable: React.FC = () => {
+  const [taskLists, setTaskLists] = useState<TaskList[]>(taskListsData);
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   // checkbox
 
   // craw data
-  const data: Contact[] = useMemo(() => contacts, [contacts]);
+  const data: TaskList[] = useMemo(() => taskLists, [taskLists]);
 
-  const columns: ColumnDef<Contact>[] = useMemo(
+  const columns: ColumnDef<TaskList>[] = useMemo(
     () => [
       {
         header: () => (
@@ -142,11 +146,15 @@ const ContactTable: React.FC = () => {
         cell: () => null,
       },
       { header: "Nom du contact", accessorKey: "name" },
-      { header: "Email", accessorKey: "email" },
-      { header: "Téléphone", accessorKey: "phone" },
-      { header: "Opportunity", accessorKey: "opportunity" },
-      { header: "Responsable", accessorKey: "responsible" },
+      { header: "Phase", accessorKey: "phase" },
       { header: "Étiquettes", accessorKey: "labels" },
+      { header: "Organisation", accessorKey: "organisation" },
+      { header: "Contact", accessorKey: "contact" },
+      { header: "Responsable", accessorKey: "responsible" },
+      { header: "Valeur", accessorKey: "valeur" },
+      { header: "Date closing", accessorKey: "dateClosing" },
+      { header: "Date de création", accessorKey: "dateClosing" },
+
       {
         header: () => <FaCog className="setting" />,
         id: "setting",
@@ -171,11 +179,11 @@ const ContactTable: React.FC = () => {
     }
   };
   const handleDelete = (id: number) => {
-    setContacts(contacts.filter((contact) => contact.id !== id));
+    setTaskLists(taskLists.filter((taskLists) => taskLists.id !== id));
   };
 
-  const handleEdit = (contact: Contact) => {
-    console.log("Editing contact:", contact); // Thêm logic chỉnh sửa (ví dụ: mở modal)
+  const handleEdit = (taskLists: TaskList) => {
+    console.log("Editing opportunites:", taskLists); // Thêm logic chỉnh sửa (ví dụ: mở modal)
   };
   // pagination
   const table = useReactTable({
@@ -219,7 +227,7 @@ const ContactTable: React.FC = () => {
 
           <tbody>
             {table.getRowModel().rows.map((row) => (
-              <ContactRow
+              <TaskListRow
                 key={row.id}
                 row={row}
                 onToggle={handleToggle}
@@ -274,4 +282,4 @@ const ContactTable: React.FC = () => {
     </div>
   );
 };
-export default ContactTable;
+export default TaskTable;

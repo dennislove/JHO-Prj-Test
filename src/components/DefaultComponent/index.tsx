@@ -9,11 +9,14 @@ import ListContact from "../Contact/ListContact";
 import ListEtiquettes from "../Contact/ListEtiquettes";
 import Exporter from "../Contact/Exporter";
 import CreateOppor from "../Opportunity/CreateOppor";
+import EditTask from "../Taks/EditTask";
 interface ChildProps {
   isListContactOpen: boolean;
   isListEtiquettesOpen: boolean;
   isExporterOpen: boolean;
   isCreateOpporOpen: boolean;
+  isEditTaskOpen: boolean;
+  setIsEditTaskOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setIsListContactOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setIsListEtiquettesOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setIsExporterOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -26,6 +29,7 @@ const DefaultComponent: React.FC<{ children: React.ReactNode }> = ({
   const [isListEtiquettesOpen, setIsListEtiquettesOpen] = useState(false);
   const [isExporterOpen, setIsExporterOpen] = useState(false);
   const [isCreateOpporOpen, setIsCreateOpporOpen] = useState(false);
+  const [isEditTaskOpen, setIsEditTaskOpen] = useState(false);
 
   return (
     <div
@@ -33,40 +37,39 @@ const DefaultComponent: React.FC<{ children: React.ReactNode }> = ({
         isListContactOpen ||
         isListEtiquettesOpen ||
         isExporterOpen ||
-        isCreateOpporOpen
+        isCreateOpporOpen ||
+        isEditTaskOpen
           ? "blur"
           : ""
       }`}
     >
       <div className="main-content">
-        <Header />
+        <SidebarView />
 
         {/* Main content */}
-        <main className="content">
-          <SidebarView />
-          <div className="content-children">
-            <HeaderView />
-            <div className="body-content-children">
-              {React.Children.map(children, (child) =>
-                React.isValidElement(child)
-                  ? React.cloneElement(
-                      child as React.ReactElement<ChildProps>,
-                      {
-                        isListContactOpen,
-                        isListEtiquettesOpen,
-                        isExporterOpen,
-                        isCreateOpporOpen,
-                        setIsListContactOpen,
-                        setIsListEtiquettesOpen,
-                        setIsExporterOpen,
-                        setIsCreateOpporOpen,
-                      }
-                    )
-                  : child
-              )}
-            </div>
+
+        <div className="content-children">
+          <Header />
+          <HeaderView />
+          <div className="body-content-children">
+            {React.Children.map(children, (child) =>
+              React.isValidElement(child)
+                ? React.cloneElement(child as React.ReactElement<ChildProps>, {
+                    isListContactOpen,
+                    isListEtiquettesOpen,
+                    isExporterOpen,
+                    isCreateOpporOpen,
+                    isEditTaskOpen,
+                    setIsEditTaskOpen,
+                    setIsListContactOpen,
+                    setIsListEtiquettesOpen,
+                    setIsExporterOpen,
+                    setIsCreateOpporOpen,
+                  })
+                : child
+            )}
           </div>
-        </main>
+        </div>
       </div>
       {isListContactOpen && (
         <ListContact
@@ -90,6 +93,12 @@ const DefaultComponent: React.FC<{ children: React.ReactNode }> = ({
         <CreateOppor
           isCreateOpporOpen={isCreateOpporOpen}
           setIsCreateOpporOpen={setIsCreateOpporOpen}
+        />
+      )}
+      {isEditTaskOpen && (
+        <EditTask
+          isEditTaskOpen={isEditTaskOpen}
+          setIsEditTaskOpen={setIsEditTaskOpen}
         />
       )}
       {/* Footer */}

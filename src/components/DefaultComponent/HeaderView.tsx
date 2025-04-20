@@ -1,8 +1,16 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { FaCog, FaUser } from "react-icons/fa";
+import {
+  FaBars,
+  FaCalendarAlt,
+  FaCalendarCheck,
+  FaCog,
+  FaTag,
+} from "react-icons/fa";
 import "./index.scss";
+import { FaDollarSign } from "react-icons/fa6";
 const HeaderView: React.FC = () => {
-  const location = useLocation();
+  const location = useLocation().pathname;
+  const isOpportunites = location === "/opportunites";
   return (
     <div className="topView">
       <div className="headerView">
@@ -12,39 +20,49 @@ const HeaderView: React.FC = () => {
             `tag-path ${isActive ? "active" : ""}`
           }
         >
-          <FaUser className="icon" size={18} />
+          <FaCalendarAlt className="icon" size={18} />
           <h3>Contacts</h3>
         </NavLink>
         <NavLink
-          to="/etiquettes"
+          to={isOpportunites ? "/etiquettes" : "/listes"}
           className={({ isActive }: { isActive: boolean }) =>
             `tag-path ${isActive ? "active" : ""}`
           }
         >
-          <FaUser className="icon" />
-          <h3>Étiquettes</h3>
+          {isOpportunites ? (
+            <>
+              <FaTag className="icon" />
+              <h3>Étiquettes</h3>
+            </>
+          ) : (
+            <>
+              <FaBars className="icon" />
+              <h3>Listes</h3>
+            </>
+          )}
         </NavLink>
+
         <NavLink
           to="/opportunites"
           className={({ isActive }: { isActive: boolean }) =>
             `tag-path ${isActive ? "active" : ""}`
           }
         >
-          <FaUser className="icon" />
+          <FaDollarSign className="icon" />
           <h3>Opportunités</h3>
         </NavLink>
         <NavLink
-          to="/taches"
+          to="/tasks"
           className={({ isActive }: { isActive: boolean }) =>
             `tag-path ${isActive ? "active" : ""}`
           }
         >
-          <FaUser className="icon" />
+          <FaCalendarCheck className="icon" />
           <h3>Tâches</h3>
         </NavLink>
       </div>
 
-      {location.pathname !== "/contacts" && (
+      {location !== "/contacts" && (
         <div className="header-setting">
           <FaCog />
           <h3>Paramètre</h3>

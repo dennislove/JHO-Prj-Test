@@ -110,9 +110,14 @@ tr {
 }
 .pagination {
   display: flex;
-  justify-content: center;
+  color: #a9abad;
+  justify-content: space-around;
   margin-top: 16px;
 
+  .page-size {
+    display: flex;
+    align-items: center;
+  }
   button {
     margin: 0 8px;
     padding: 6px 12px;
@@ -122,6 +127,45 @@ tr {
   span {
     padding: 6px 12px;
   }
+  select {
+    border: 1px solid #273140;
+    background: none;
+    color: $light-color;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 10px;
+  }
+  option {
+    background-color: transparent;
+    color: #000;
+  }
+}
+.page-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    color: #fff;
+    transition-duration: 300ms;
+    &:hover {
+      font-size: 20px;
+    }
+  }
+  span {
+    font-size: 12px;
+    font-weight: 700;
+
+    &:first-of-type {
+      color: #fff;
+      padding: 8px;
+      border-radius: 10px;
+      border: 1px solid #273140;
+    }
+  }
+}
+.paginati-center {
+  display: flex;
 }
 .action-btn {
   background-color: transparent;

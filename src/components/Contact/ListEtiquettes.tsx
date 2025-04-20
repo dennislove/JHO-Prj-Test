@@ -10,6 +10,8 @@ import { VscChromeClose } from "react-icons/vsc";
 import listsData from "../../data/listContacts.json";
 import "./ListContact.scss";
 import ButtonSolid from "../Button/ButtonSolid";
+import AddEtiquette from "./AddEtiquette";
+import EditEtiquette from "./EditEtiquette";
 
 interface List {
   id: number;
@@ -28,13 +30,27 @@ const ListEtiquettes: React.FC<ListEtiquettesProps> = ({
 }) => {
   const [lists] = useState<List[]>(listsData);
   const [openTrashId, setOpenTrashId] = useState<number | null>(null);
-
+  const [isAddEtiquetteOpen, setIsAddEtiquetteOpen] = useState<boolean>(false);
+  const [isEditEtiquetteOpen, setIsEditEtiquetteOpen] =
+    useState<boolean>(false);
   const toggleTrash = (id: number) => {
     setOpenTrashId((prev) => (prev === id ? null : id));
   };
 
   const handleClose = () => {
     setIsListEtiquettesOpen(false);
+  };
+  const handeOpenAddEtiquette = () => {
+    setIsAddEtiquetteOpen(true);
+  };
+  const handeOpenEditEtiquette = () => {
+    setIsEditEtiquetteOpen(true);
+  };
+  const handleCloseAddEtiquette = () => {
+    setIsAddEtiquetteOpen(false);
+  };
+  const handleCloseEditEtiquette = () => {
+    setIsEditEtiquetteOpen(false);
   };
 
   const colorClasses = ["blue", "green", "dark-green", "cyan", "yellow", "red"];
@@ -61,7 +77,10 @@ const ListEtiquettes: React.FC<ListEtiquettesProps> = ({
               <FaSearch className="search-icon" size={18} />
               <input type="text" placeholder="Recherche" />
             </div>
-            <ButtonSolid name="Ajouter une liste" />
+            <ButtonSolid
+              name="Ajouter une liste"
+              onClick={handeOpenAddEtiquette}
+            />
           </div>
         </div>
 
@@ -79,7 +98,7 @@ const ListEtiquettes: React.FC<ListEtiquettesProps> = ({
                 </span>
                 <span>{list.contactCount}</span>
                 <div className="action-cell">
-                  <button className="edit-btn">
+                  <button className="edit-btn" onClick={handeOpenEditEtiquette}>
                     <FaPen className="edit-icon" />
                     Modifier
                   </button>
@@ -105,6 +124,10 @@ const ListEtiquettes: React.FC<ListEtiquettesProps> = ({
           </div>
         </div>
       </div>
+      {isAddEtiquetteOpen && <AddEtiquette onClose={handleCloseAddEtiquette} />}
+      {isEditEtiquetteOpen && (
+        <EditEtiquette onClose={handleCloseEditEtiquette} />
+      )}
     </div>
   );
 };

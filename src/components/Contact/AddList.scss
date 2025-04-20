@@ -1,0 +1,148 @@
+@import "../../styles/var.scss";
+.add-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); // Overlay mờ
+  z-index: 1002;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add-list-container {
+  background: $background-color;
+  max-width: 600px;
+
+  width: 100%;
+  color: #fff;
+  padding: 46px 138px;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1001;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  .closeBox {
+    position: absolute;
+    top: -10%;
+    right: -17%;
+    cursor: pointer;
+    &:hover {
+      background-color: $light-color;
+
+      border-radius: 100%;
+      color: $background-color;
+    }
+  }
+  .add-list-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 18px;
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+
+      .menu-icon {
+        color: $primary-color;
+        font-size: 18px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 20px;
+        color: #fff;
+      }
+    }
+  }
+}
+.wrap-content-box {
+  margin-bottom: 24px;
+}
+.export-name-input {
+  margin-top: 8px;
+  background-color: #2e3745;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+}
+.add-new-list {
+  width: 40%;
+  margin-top: 8px;
+  border: 1px dashed #fff;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid $gray-color;
+  margin-bottom: 24px;
+}
+.input-wrapper {
+  font-size: 12px;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-text {
+  outline: none;
+  border: none;
+  background: none;
+  color: white;
+  &::placeholder {
+    color: white;
+  }
+}
+.left-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.square-color {
+  background-color: red;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  width: 18px;
+  height: 18px;
+}
+.list-box-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 24px 0px;
+  border-top: 1px solid #3a4b4c;
+  gap: 26px;
+
+  .cancel-btn,
+  .export-btn {
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+}
+.cancel-btn {
+  background: transparent;
+  color: $light-color;
+
+  &:hover {
+    background: rgba(255, 98, 0, 0.1);
+  }
+}
+
+.export-btn {
+  padding: 20px 63px;
+  background: #ff6200;
+  border: none;
+  color: white;
+
+  &:hover {
+    background: #e55a00;
+  }
+}
