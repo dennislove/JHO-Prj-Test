@@ -136,6 +136,9 @@
             transform: rotate(90deg);
             transition-duration: 300ms;
           }
+          .delete-btn {
+            background: #fff;
+          }
           .edit-btn {
             display: flex;
             align-items: center;

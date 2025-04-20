@@ -21,7 +21,7 @@
   flex-direction: column;
   position: absolute;
   z-index: 1001;
-  top: 25%;
+  top: 12%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -54,10 +54,12 @@
   flex: 1;
   overflow-y: auto;
 
-  .section {
-    margin-bottom: 24px;
-    padding-bottom: 24px;
+  .section-bottom {
     border-bottom: 1px solid rgba($light-color, 0.2);
+    margin-bottom: 24px;
+  }
+  .section {
+    padding-bottom: 24px;
     h3 {
       font-size: 14px;
       font-weight: 700;
@@ -113,8 +115,6 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 24px 0px;
-  // border-top: 1px solid #3a4b4c;
   gap: 26px;
 
   .cancel-btn,

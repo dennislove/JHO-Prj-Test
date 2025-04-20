@@ -58,7 +58,7 @@ const Exporter: React.FC<ExporterProps> = ({ setIsExporterOpen }) => {
 
         <div className="list-box-content">
           {/* Export Format Section */}
-          <div className="section">
+          <div className="section section-bottom">
             <h3>Choisir un format pour l'exportation</h3>
             <label className="radio-label">
               <input
