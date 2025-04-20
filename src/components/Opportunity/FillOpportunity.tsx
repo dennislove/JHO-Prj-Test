@@ -1,23 +1,22 @@
 import { FaFilter, FaSearch, FaCog, FaList, FaBook } from "react-icons/fa";
 import "../Contact/FillContact.scss";
 
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import ButtonSolid from "../Button/ButtonSolid";
 interface FillOpportunityProps {
   activeIndex: number;
   setActiveIndex: (index: number) => void;
+  isCreateOpporOpen: boolean;
+  setIsCreateOpporOpen: Dispatch<SetStateAction<boolean>>;
 }
-// interface FillContactProps {
-//   isExporterOpen: boolean;
 
-//   setIsExporterOpen: Dispatch<SetStateAction<boolean>>;
-// }
 const FillOpportunity: React.FC<FillOpportunityProps> = ({
   activeIndex,
   setActiveIndex,
+  setIsCreateOpporOpen,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [listContactBox, setListContactBox] = useState(false);
+
   const [isButtonActive, setIsButtonActive] = useState(false);
   // Hàm mở modal
   const handleShowSetting = () => {
@@ -28,7 +27,11 @@ const FillOpportunity: React.FC<FillOpportunityProps> = ({
   return (
     <div className="header">
       <div className="header-left">
-        <ButtonSolid name="Ajout opportunité" />
+        <ButtonSolid
+          name="Ajout opportunité"
+          onClick={() => setIsCreateOpporOpen(true)}
+        />
+
         <div className="toggle-btn">
           <div
             className={`icon-wrapper ${activeIndex === 0 ? "active-icon" : ""}`}
@@ -91,9 +94,7 @@ const FillOpportunity: React.FC<FillOpportunityProps> = ({
         <div className="modal">
           <h3>Créer / Editer une Liste</h3>
           <h3>Créer / Editer une Etiquette</h3>
-          {/* <h3 onClick={() => setIsExporterOpen(true)}>
-            Exporter les résultats du filtre...
-          </h3> */}
+
           <h3>Importer des données</h3>
         </div>
       )}

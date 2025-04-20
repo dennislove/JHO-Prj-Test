@@ -8,6 +8,7 @@ import SidebarView from "./SidebarView";
 import ListContact from "../Contact/ListContact";
 import ListEtiquettes from "../Contact/ListEtiquettes";
 import Exporter from "../Contact/Exporter";
+import CreateOppor from "../Opportunity/CreateOppor";
 
 const DefaultComponent: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -15,9 +16,19 @@ const DefaultComponent: React.FC<{ children: React.ReactNode }> = ({
   const [isListContactOpen, setIsListContactOpen] = useState(false);
   const [isListEtiquettesOpen, setIsListEtiquettesOpen] = useState(false);
   const [isExporterOpen, setIsExporterOpen] = useState(false);
+  const [isCreateOpporOpen, setIsCreateOpporOpen] = useState(false);
 
   return (
-    <div className={`layout ${isListContactOpen ? "blur" : ""}`}>
+    <div
+      className={`layout ${
+        isListContactOpen ||
+        isListEtiquettesOpen ||
+        isExporterOpen ||
+        isCreateOpporOpen
+          ? "blur"
+          : ""
+      }`}
+    >
       <div className="main-content">
         <Header />
 
@@ -33,9 +44,11 @@ const DefaultComponent: React.FC<{ children: React.ReactNode }> = ({
                       isListContactOpen,
                       isListEtiquettesOpen,
                       isExporterOpen,
+                      isCreateOpporOpen,
                       setIsListContactOpen,
                       setIsListEtiquettesOpen,
                       setIsExporterOpen,
+                      setIsCreateOpporOpen,
                     })
                   : child
               )}
@@ -61,7 +74,12 @@ const DefaultComponent: React.FC<{ children: React.ReactNode }> = ({
           setIsExporterOpen={setIsExporterOpen}
         />
       )}
-
+      {isCreateOpporOpen && (
+        <CreateOppor
+          isCreateOpporOpen={isCreateOpporOpen}
+          setIsCreateOpporOpen={setIsCreateOpporOpen}
+        />
+      )}
       {/* Footer */}
     </div>
   );

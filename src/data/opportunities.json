@@ -2,17 +2,24 @@
   "columns": [
     {
       "title": "Non traité",
+
       "color": "#1e90ff",
       "opportunities": [
         {
           "title": "AFFAIRE ROMAIN",
+          "dateClosing": "29/03/2025",
           "subtitle": "STUDIO GILLY, ROMAIN",
+          "avatar": "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/482740TZa/anh-mo-ta.png",
           "value": "1500€",
           "warning": true
         },
         {
           "title": "AFFAIRE ROMAIN",
+          "dateClosing": "29/03/2025",
+
           "subtitle": "STUDIO GILLY, ROMAIN",
+          "avatar": "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/482740TZa/anh-mo-ta.png",
+
           "value": "1500€",
           "warning": false
         }
@@ -20,17 +27,23 @@
     },
     {
       "title": "Injoignable",
+
       "color": "#ff8c00",
       "opportunities": [
         {
           "title": "AFFAIRE ROMAIN",
+          "dateClosing": "29/03/2025",
           "subtitle": "STUDIO GILLY, ROMAIN",
+          "avatar": "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/482740TZa/anh-mo-ta.png",
           "value": "1500€",
           "warning": true
         },
         {
           "title": "AFFAIRE ROMAIN",
+          "dateClosing": "29/03/2025",
           "subtitle": "STUDIO GILLY, ROMAIN",
+          "avatar": "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/482740TZa/anh-mo-ta.png",
+
           "value": "1500€",
           "warning": false
         }
@@ -38,17 +51,23 @@
     },
     {
       "title": "En cours",
+
       "color": "#0038FF",
       "opportunities": [
         {
           "title": "AFFAIRE ROMAIN",
+          "dateClosing": "29/03/2025",
           "subtitle": "STUDIO GILLY, ROMAIN",
+          "avatar": "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/482740TZa/anh-mo-ta.png",
           "value": "1500€",
           "warning": false
         },
         {
           "title": "AFFAIRE ROMAIN",
+          "dateClosing": "29/03/2025",
           "subtitle": "STUDIO GILLY, ROMAIN",
+          "avatar": "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/482740TZa/anh-mo-ta.png",
+
           "value": "1500€",
           "warning": false
         }
@@ -56,17 +75,23 @@
     },
     {
       "title": "En négociation",
+
       "color": "#00b7eb",
       "opportunities": [
         {
           "title": "AFFAIRE ROMAIN",
+          "dateClosing": "29/03/2025",
           "subtitle": "STUDIO GILLY, ROMAIN",
+          "avatar": "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/482740TZa/anh-mo-ta.png",
           "value": "1500€",
           "warning": false
         },
         {
           "title": "AFFAIRE ROMAIN",
+          "dateClosing": "29/03/2025",
           "subtitle": "STUDIO GILLY, ROMAIN",
+          "avatar": "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/482740TZa/anh-mo-ta.png",
+
           "value": "1500€",
           "warning": true
         }
@@ -74,11 +99,14 @@
     },
     {
       "title": "Gagné",
+
       "color": "#32cd32",
       "opportunities": [
         {
           "title": "AFFAIRE ROMAIN",
+          "dateClosing": "29/03/2025",
           "subtitle": "STUDIO GILLY, ROMAIN",
+          "avatar": "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/482740TZa/anh-mo-ta.png",
           "value": "1500€",
           "warning": false
         }
@@ -86,11 +114,14 @@
     },
     {
       "title": "Perdu",
+
       "color": "#ff4040",
       "opportunities": [
         {
           "title": "AFFAIRE ROMAIN",
+          "dateClosing": "29/03/2025",
           "subtitle": "STUDIO GILLY, ROMAIN",
+          "avatar": "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/482740TZa/anh-mo-ta.png",
           "value": "1500€",
           "warning": false
         }

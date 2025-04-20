@@ -1,32 +1,28 @@
 import { Dispatch, SetStateAction, useState } from "react";
 
-import "./Opportunity.scss";
+import "../ContactPage/Contact.scss";
 import FillOpportunity from "../../components/Opportunity/FillOpportunity";
 import OpportunityTable from "../../components/Opportunity/OpportunityTable";
 import OpportunityDash from "../../components/Opportunity/OpportunityDash";
 
-interface ContactPageProps {
-  isListContactOpen: boolean;
-  isExporterOpen: boolean;
-  isListEtiquettesOpen: boolean;
-  setIsListContactOpen: Dispatch<SetStateAction<boolean>>;
-  setIsListEtiquettesOpen: Dispatch<SetStateAction<boolean>>;
-  setIsExporterOpen: Dispatch<SetStateAction<boolean>>;
+interface OpporPageProps {
+  isCreateOpporOpen: boolean;
+  setIsCreateOpporOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const OpportunityPage: React.FC = () => {
+const OpportunityPage: React.FC<OpporPageProps> = ({
+  isCreateOpporOpen,
+  setIsCreateOpporOpen,
+}) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [isExporterOpen, setIsExporterOpen] = useState<boolean>(false);
+
   return (
-    <div
-    // className={`contact-page ${ isExporterOpen
-    //     ? "blur"
-    //     : ""
-    // }`}
-    >
+    <div className={`contact-page ${isCreateOpporOpen ? "blur" : ""}`}>
       <FillOpportunity
         activeIndex={activeIndex}
         setActiveIndex={setActiveIndex}
+        isCreateOpporOpen={isCreateOpporOpen}
+        setIsCreateOpporOpen={setIsCreateOpporOpen}
       />
       <div className="content">
         {activeIndex === 0 ? <OpportunityTable /> : <OpportunityDash />}

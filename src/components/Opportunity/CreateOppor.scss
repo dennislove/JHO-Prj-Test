@@ -1,0 +1,178 @@
+@import "../../styles/var.scss";
+.list-contact-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); // Overlay mờ
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list-box-container {
+  background: $background-color;
+  max-width: 600px;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1001;
+  top: 0;
+  transition: transform 5s ease-in-out;
+
+  &.open {
+    animation: slideInWithFade 0.5s ease-in-out forwards;
+  }
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .closeBox {
+    position: absolute;
+    background: none;
+    border: none;
+    color: #b0c4de;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    label {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    input,
+    select {
+      background: #2e3745;
+      border: none;
+      border-radius: 10px;
+      padding: 12px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 400;
+      width: 100%;
+      box-sizing: border-box;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #4682b4;
+      }
+    }
+    .select-special {
+      color: $light-color;
+    }
+
+    .select-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      select {
+        padding: 12px 30px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+
+      .pipeline-dot {
+        position: absolute;
+        left: 10px;
+        width: 12px;
+        height: 12px;
+        border-radius: 100%;
+        background-color: #ff8c00; // Color for "Non traité" as shown in the image
+      }
+      .pipeline-angle {
+        position: absolute;
+        right: 10px;
+        color: #b0c4de;
+        pointer-events: none;
+        transition: transform 0.3s ease;
+      }
+      select:focus + .pipeline-angle {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .form-row {
+    display: flex;
+    gap: 15px;
+
+    .form-group {
+      flex: 1;
+    }
+  }
+  .row-special {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+  .group-special {
+    grid-column: span 4 / span 4;
+  }
+  .group-special-2 {
+    grid-column: span 3 / span 3;
+  }
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    gap: 26px;
+
+    .cancel-btn,
+    .submit-btn {
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .cancel-btn {
+      color: $light-color;
+    }
+
+    .submit-btn {
+      padding: 21px 36px;
+      background: $primary-color;
+      color: #fff;
+    }
+  }
+}
+
+@keyframes slideInWithFade {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(73px);
+    opacity: 1; // Fully visible
+  }
+}

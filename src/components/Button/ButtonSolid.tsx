@@ -2,11 +2,11 @@ import { FaPlus } from "react-icons/fa";
 import "./index.scss";
 interface ButtonSolidProps {
   name: string;
-  // onClick: () => void;
+  onClick: () => void;
 }
-const ButtonSolid: React.FC<ButtonSolidProps> = ({ name }) => {
+const ButtonSolid: React.FC<ButtonSolidProps> = ({ name, onClick }) => {
   return (
-    <button className="add-contact-btn">
+    <button className="add-contact-btn" onClick={onClick}>
       <FaPlus className="icon" /> {name}
     </button>
   );

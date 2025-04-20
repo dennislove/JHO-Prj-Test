@@ -1,6 +1,12 @@
 @import "../../styles/var.scss";
+
+.opportunity-dash {
+  width: 100%;
+}
 .columns {
-  display: flex;
+  display: grid;
+
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 20px;
   overflow-x: auto;
   padding-bottom: 10px;
@@ -8,6 +14,7 @@
   .column {
     background: #17202e;
     padding: 10px;
+    height: 70vh;
     border-radius: 8px;
 
     .column-header {
@@ -26,39 +33,67 @@
       }
 
       .count {
-        background: rgba(0, 0, 0, 0.2);
+        background-color: var(--oppacy-color, 0.2);
         padding: 2px 8px;
+        color: var(--dot-color);
         border-radius: 12px;
         font-size: 12px;
       }
     }
 
     .card {
+      height: auto;
       background: #243145;
       border-radius: 5px;
-      padding: 10px;
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
+      margin-top: 8px;
+      transition-duration: 300ms;
+      &:hover {
+        transform: translateY(-5px);
+        transform: scale(1.05);
+      }
       .card-content {
+        padding: 8px;
+        .card-date {
+          width: 60px;
+          background-color: #ff001f20;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          font-size: 8px;
+          font-weight: 400;
+          padding: 3px 5px;
+          border-radius: 10px;
+          margin-bottom: 4px;
+        }
         .card-title {
           color: #fff;
-          font-size: 14px;
-          font-weight: 500;
+          font-size: 12px;
+          font-weight: 700;
         }
 
         .card-subtitle {
           color: #b0c4de;
           font-size: 12px;
-          margin: 2px 0;
+          font-weight: 400;
         }
-
+        .card-bottom {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .card-info {
+          display: flex;
+          gap: 8px;
+        }
         .card-value {
           color: #fff;
           font-size: 14px;
           font-weight: 600;
+        }
+        .card-avatar {
+          width: 18px;
+          height: 18px;
+          border-radius: 100%;
         }
       }
 
@@ -68,7 +103,10 @@
         gap: 8px;
 
         .warning-icon {
-          color: #ffa500;
+          color: black;
+          padding: 4px;
+          border-radius: 100%;
+          background-color: #ffe500;
         }
 
         .arrow-icon {
@@ -77,4 +115,11 @@
       }
     }
   }
+}
+
+.dotInHeader {
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  background: var(--dot-color);
 }
