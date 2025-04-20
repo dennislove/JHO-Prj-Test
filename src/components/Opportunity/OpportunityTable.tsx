@@ -5,6 +5,7 @@ import {
   getCoreRowModel,
   getPaginationRowModel,
   useReactTable,
+  Row,
 } from "@tanstack/react-table";
 import opportunitesData from "../../data/lisstOpportunites.json";
 import "../Contact/ContactTable.scss";
@@ -15,7 +16,6 @@ import {
   FaPen,
   FaTrash,
 } from "react-icons/fa";
-import { Row } from "react-table";
 
 type Opportunite = {
   id: number;

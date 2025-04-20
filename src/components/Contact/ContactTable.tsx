@@ -5,6 +5,7 @@ import {
   getCoreRowModel,
   getPaginationRowModel,
   useReactTable,
+  Row,
 } from "@tanstack/react-table";
 import contactsData from "../../data/contacts.json";
 import "./ContactTable.scss";
@@ -17,7 +18,6 @@ import {
   FaPhone,
   FaTrash,
 } from "react-icons/fa";
-import { Row } from "react-table";
 
 type Contact = {
   id: number;
