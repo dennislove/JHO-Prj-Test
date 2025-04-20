@@ -9,7 +9,16 @@ import ListContact from "../Contact/ListContact";
 import ListEtiquettes from "../Contact/ListEtiquettes";
 import Exporter from "../Contact/Exporter";
 import CreateOppor from "../Opportunity/CreateOppor";
-
+interface ChildProps {
+  isListContactOpen: boolean;
+  isListEtiquettesOpen: boolean;
+  isExporterOpen: boolean;
+  isCreateOpporOpen: boolean;
+  setIsListContactOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsListEtiquettesOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsExporterOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsCreateOpporOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 const DefaultComponent: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
@@ -40,16 +49,19 @@ const DefaultComponent: React.FC<{ children: React.ReactNode }> = ({
             <div className="body-content-children">
               {React.Children.map(children, (child) =>
                 React.isValidElement(child)
-                  ? React.cloneElement(child, {
-                      isListContactOpen,
-                      isListEtiquettesOpen,
-                      isExporterOpen,
-                      isCreateOpporOpen,
-                      setIsListContactOpen,
-                      setIsListEtiquettesOpen,
-                      setIsExporterOpen,
-                      setIsCreateOpporOpen,
-                    })
+                  ? React.cloneElement(
+                      child as React.ReactElement<ChildProps>,
+                      {
+                        isListContactOpen,
+                        isListEtiquettesOpen,
+                        isExporterOpen,
+                        isCreateOpporOpen,
+                        setIsListContactOpen,
+                        setIsListEtiquettesOpen,
+                        setIsExporterOpen,
+                        setIsCreateOpporOpen,
+                      }
+                    )
                   : child
               )}
             </div>
