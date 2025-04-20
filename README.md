@@ -8,8 +8,6 @@ Currently, two official plugins are available:
 
 npm i
 
-npm run build
-
 npm run dev
 
 #Two way to login website
